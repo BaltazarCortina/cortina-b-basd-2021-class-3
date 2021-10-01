@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    background-color: yellowgreen;
+}
+
+nav {
+    display: flex;
+    background-color: teal;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer {
+    display: flex;
+    background-color: tomato;
+}
+
+.first-news {
+    background-color: yellowgreen;
+    width: 100%;
+}
+
+.main-news {
+
+}
+
+.other-news {
+
+}
+
+.main-section {
+    background-color: blueviolet;
+}
+
+.main-col {
+
+}

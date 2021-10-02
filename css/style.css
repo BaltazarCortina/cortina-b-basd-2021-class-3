@@ -1,10 +1,17 @@
+body {
+    text-align: center;
+}
+
 header {
-    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 50px;
     background-color: yellowgreen;
 }
 
 nav {
-    display: flex;
+    display: none;
     background-color: teal;
 }
 
@@ -14,27 +21,49 @@ main {
 }
 
 footer {
-    display: flex;
+    height: 100px;
     background-color: tomato;
 }
 
+.hamburger-menu {
+    
+}
+
+.date {
+    background-color: pink;
+}
+
 .first-news {
-    background-color: yellowgreen;
     width: 100%;
+    background-color: yellowgreen;
 }
 
 .main-news {
-
+    /* height: 200px; */
+    background-color: purple;
 }
 
 .other-news {
+    
+}
+
+.secondary-news {
 
 }
 
 .main-section {
+    width: 100%;
     background-color: blueviolet;
 }
 
 .main-col {
+    background-color: slategray;
+}
 
+.news {
+    padding: 10px;
+}
+
+.news img {
+    width: 100%;
 }

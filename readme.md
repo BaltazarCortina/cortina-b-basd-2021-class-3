@@ -12,3 +12,5 @@ Baltazar Cortina
 ---
 
 GitHub repository: https://github.com/BaltazarCortina/cortina-b-basd-2021-class-3
+
+GitHub Page: https://baltazarcortina.github.io/cortina-b-basd-2021-class-3/

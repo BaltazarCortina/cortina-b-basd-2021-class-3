@@ -4,7 +4,7 @@
     --text-color: #323232;
     --hover-color: #666666;
     --dark-color: #1c1c1c;
-  }
+}
 
 body {
     font-family: 'Yaldevi', sans-serif;
@@ -111,7 +111,6 @@ footer {
 }
 
 .search-bar form input {
-    /* visibility: hidden; */
     width: 0px;
     height: 34px;
     padding: 4px 30px 4px 5px;
@@ -123,7 +122,6 @@ footer {
 }
 
 .search-bar form:hover input, .search-bar form:active input {
-    /* visibility: visible; */
     width: 300px;
 }
 
@@ -170,14 +168,18 @@ footer {
     font-size: 0.8rem;
 }
 
-.subscribe button {
+.subscribe {
+    padding: 0 5px;
+}
+
+.subscribe-btn {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-color);
     transition: color 0.5s;
 }
 
-.subscribe button:hover {
+.subscribe-btn:hover {
     color: var(--hover-color);
 }
 
@@ -319,6 +321,30 @@ div.advertisement-small + .news {
     font-size: 0.8rem;
     line-height: 1.2;
     color: #646464;
+}
+
+.form-container {
+    width: 100%;
+    padding: 50px 0;
+}
+
+.form-container form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+
+.form-container form label {
+    display: block;
+}
+
+.form-container form input {
+    width: 80%;
+}
+
+.form-container .form-field {
+    width: 50%;
 }
 
 @media (min-width: 480px) {

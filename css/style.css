@@ -3,7 +3,9 @@
     --border-color: #a5a5a5;
     --text-color: #323232;
     --hover-color: #666666;
+    --light-color: #d6d6d6;
     --dark-color: #1c1c1c;
+    --error-color: #b10000;
 }
 
 body {
@@ -151,7 +153,7 @@ footer {
 }
 
 .information-bar {
-    background-color: #d6d6d6;
+    background-color: var(--light-color);
 }
 
 .information-bar .container {
@@ -162,6 +164,14 @@ footer {
     margin: auto;
     padding: 7px 10px;
     box-sizing: border-box;
+}
+
+.subscribe-bar {
+    padding: 10px;
+    border-top: 10px solid var(--text-color);
+    background-color: var(--light-color);
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .date {
@@ -325,26 +335,59 @@ div.advertisement-small + .news {
 
 .form-container {
     width: 100%;
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 .form-container form {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    width: 80%;
+    width: 90%;
     margin: auto;
+    /* border: 3px solid var(--text-color);
+    border-radius: 6px;
+    background-color: white; */
 }
 
 .form-container form label {
     display: block;
+    padding: 0 5px 5px;
+    text-align: initial;
 }
 
 .form-container form input {
-    width: 80%;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #b9b9b9;
+    box-sizing: border-box;
+    border-radius: 6px;
 }
 
 .form-container .form-field {
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-container .form-error {
+    padding-top: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: end;
+    color: var(--error-color);
+}
+
+.form-container .form-subscribe {
+    width: 70%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.form-container .form-subscribe input {
+    background-color: var(--text-color);
+    font-family: 'Yaldevi', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: white;
 }
 
 @media (min-width: 480px) {
@@ -560,5 +603,14 @@ div.advertisement-small + .news {
     .advertisement-small {
         height: 200px;
         line-height: 12;
+    }
+
+    .form-container .form-field {
+        width: 50%;
+        padding: 0 30px;
+    }
+
+    .form-container .form-subscribe {
+        width: 40%;
     }
 }

@@ -369,9 +369,10 @@ div.advertisement-small + .news {
 }
 
 .form-container .form-error {
+    height: 15px;
     padding-top: 5px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
     text-align: end;
     color: var(--error-color);
 }
@@ -388,6 +389,10 @@ div.advertisement-small + .news {
     font-size: 1rem;
     text-transform: uppercase;
     color: white;
+}
+
+.form-container form input.error, .form-container form input.error:hover {
+    border: 2px solid var(--error-color);
 }
 
 @media (min-width: 480px) {

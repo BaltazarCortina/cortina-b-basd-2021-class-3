@@ -46,13 +46,13 @@ function validate(e) {
             validationResult = validatePhone(e.target.value);
             break;
         case 'address':
-            validationResult = [false];
+            validationResult = validateAddress(e.target.value);;
             break;
         case 'city':
-            validationResult = [false];
+            validationResult = validateCity(e.target.value);
             break;
         case 'postal-code':
-            validationResult = [false];
+            validationResult = validatePostalCode(e.target.value);
             break;
         case 'id':
             validationResult = validateId(e.target.value);

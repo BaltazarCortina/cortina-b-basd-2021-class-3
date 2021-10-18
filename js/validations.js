@@ -1,16 +1,10 @@
 function validateName(value) {
-    let validFormat = /^([A-Za-z]+( [A-Za-z]+)+)$/;
     let error = false;
     let errorMsg;
-    if (value.length < 6) {
+    let stringValidationResult = validateString(value, 'Name', 6, 'onlyLetters', true);
+    if (stringValidationResult[0]) {
         error = true;
-        errorMsg = 'The name must be at least 6 letters long!';
-    } else if (!value.includes(' ')) {
-        error = true;
-        errorMsg = 'The name must contain a blank space!';
-    } else if (!validFormat.test(value)) {
-        error = true;
-        errorMsg = 'The name can only contain letters!';
+        errorMsg = stringValidationResult[1];
     }
     return [error, errorMsg];
 }
@@ -117,6 +111,80 @@ function validateId(value) {
     if (positiveNumberResult[0]) {
         error = true;
         errorMsg = positiveNumberResult[1];
+    }
+    return [error, errorMsg];
+}
+
+function validateAddress(value) {
+    let error = false;
+    let errorMsg;
+    let stringValidationResult = validateString(value, 'Address', 5, 'bothStrict', true);
+    if (stringValidationResult[0]) {
+        error = true;
+        errorMsg = stringValidationResult[1];
+    }
+    return [error, errorMsg];
+}
+
+function validateCity(value) {
+    let error = false;
+    let errorMsg;
+    let stringValidationResult = validateString(value, 'City', 3, 'onlyLetters');
+    if (stringValidationResult[0]) {
+        error = true;
+        errorMsg = stringValidationResult[1];
+    }
+    return [error, errorMsg];
+}
+
+function validatePostalCode(value) {
+    let error = false;
+    let errorMsg;
+    let stringValidationResult = validateString(value, 'Postal code', 3, 'bothOptional');
+    if (stringValidationResult[0]) {
+        error = true;
+        errorMsg = stringValidationResult[1];
+    }
+    return [error, errorMsg];
+}
+
+function validateString(string, fieldName, minLength, format, space = false) {
+    let validFormatOnlyLetters = /^([A-Za-z]+( [A-Za-z]+)?)$/;
+    let validFormatBothOptional = /^([A-Za-z0-9]+( [A-Za-z0-9]+)?)$/;
+    let validFormatBothStrict = /^(?=.*\d)(?=.*[a-zA-Z])(([a-zA-Z0-9]+\s?)+)$/;
+
+    let error = false;
+    let errorMsg;
+    
+    if (string.length < minLength) {
+        error = true;
+        errorMsg = `${fieldName} must be at least ${minLength} digits long!`;
+    } else if (space && !string.includes(' ')) {
+        error = true;
+        errorMsg = `${fieldName} must contain a blank space!`;
+    } else {
+        switch (format) {
+            case 'onlyLetters':
+                if (!validFormatOnlyLetters.test(string)) {
+                    error = true;
+                    errorMsg = `${fieldName} can only contain letters!`;
+                }
+                break;
+            case 'bothOptional':
+                if (!validFormatBothOptional.test(string)) {
+                    error = true;
+                    errorMsg = `${fieldName} can only contain letters and numbers!`;
+                }
+                break;
+            case 'bothStrict':
+                if (!validFormatBothStrict.test(string)) {
+                    error = true;
+                    errorMsg = `${fieldName} must contain letters and numbers!`;
+                }
+                break;
+            default:
+                break;
+        }
     }
     return [error, errorMsg];
 }

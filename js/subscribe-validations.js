@@ -1,5 +1,6 @@
 var fieldNames = ['name', 'email', 'password', 'repeat-password', 'age', 'phone', 'address', 'city', 'postal-code', 'id'];
 var fields = [];
+var form = document.getElementById('subscribe-form');
 var password = '';
 
 /*
@@ -19,6 +20,8 @@ for (let i = 0; i < fieldNames.length; i++) {
     fields.push(document.getElementById(fieldNames[i]));
     fields[i].addEventListener('blur', validate);
 }
+
+form.addEventListener('submit', submitForm);
 
 // fullName.addEventListener('blur', validate);
 
@@ -74,4 +77,34 @@ function correcting(e) {
     e.target.nextElementSibling.innerHTML = '';
     e.target.classList.toggle('error');
     e.target.removeEventListener('focus', correcting)
+}
+
+function submitForm(e) {
+    e.preventDefault();
+    console.log('submit');
+    let errors = document.querySelectorAll('.error');
+    if (errors.length === 0) {
+        let msg = 'The form was submitted successfully!\nThe information entered is:';
+        for (let i = 0; i < fields.length; i++) {
+            msg += '\n-' + fields[i].getAttribute('name') + ': ' + fields[i].value;
+        }
+        alert(msg);
+    } else {
+        let msg = 'There are still errors in the form!';
+        for (let i = 0; i < errors.length; i++) {
+            msg += '\n-' + errors[i].nextElementSibling.innerHTML;
+        }
+        alert(msg);
+    }
+}
+
+
+/********************Testing functions********************/
+
+var validInputs = ['full name', 'mail@mail.com', 'qweqweqwe2', 'qweqweqwe2', 24, 12345678, 'address 12', 'cityname', 'code1', 12345678];
+
+function fillForm() {
+    for (let i = 0; i < fields.length; i++) {
+        fields[i].value = validInputs[i];
+    }
 }

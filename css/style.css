@@ -168,7 +168,7 @@ footer {
 
 .subscribe-bar {
     padding: 10px;
-    border-top: 10px solid var(--text-color);
+    border-top: 5px solid var(--text-color);
     background-color: var(--light-color);
     font-weight: 600;
     text-transform: uppercase;
@@ -398,6 +398,7 @@ div.advertisement-small + .news {
 #hello-msg {
     padding: 0 0 20px;
     font-size: 1.6rem;
+    font-weight: 600;
 }
 
 @media (min-width: 480px) {

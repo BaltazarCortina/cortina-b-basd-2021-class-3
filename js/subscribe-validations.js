@@ -102,7 +102,7 @@ function submitForm(e) {
 }
 
 function helloUser(e) {
-    helloMsg.innerHTML = 'Hello ' + e.target.value;
+    helloMsg.innerHTML = 'Hello ' + e.target.value + '!';
 }
 
 

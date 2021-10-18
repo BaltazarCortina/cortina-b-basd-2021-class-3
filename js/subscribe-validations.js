@@ -1,5 +1,7 @@
 var fieldNames = ['name', 'email', 'password', 'repeat-password', 'age', 'phone', 'address', 'city', 'postal-code', 'id'];
 var fields = [];
+var fullName = document.getElementById('name');
+var helloMsg = document.getElementById('hello-msg');
 var form = document.getElementById('subscribe-form');
 var password = '';
 
@@ -21,6 +23,7 @@ for (let i = 0; i < fieldNames.length; i++) {
     fields[i].addEventListener('blur', validate);
 }
 
+fullName.addEventListener('keyup', helloUser);
 form.addEventListener('submit', submitForm);
 
 // fullName.addEventListener('blur', validate);
@@ -98,13 +101,23 @@ function submitForm(e) {
     }
 }
 
+function helloUser(e) {
+    helloMsg.innerHTML = 'Hello ' + e.target.value;
+}
+
 
 /********************Testing functions********************/
 
 var validInputs = ['full name', 'mail@mail.com', 'qweqweqwe2', 'qweqweqwe2', 24, 12345678, 'address 12', 'cityname', 'code1', 12345678];
 
-function fillForm() {
-    for (let i = 0; i < fields.length; i++) {
-        fields[i].value = validInputs[i];
+fullName.addEventListener('blur', fillForm);
+
+function fillForm(e) {
+    if (e.target.value === 'test') {
+        for (let i = 0; i < fields.length; i++) {
+            fields[i].value = validInputs[i];
+        }
+        correcting(e);
+        helloUser(e);
     }
 }

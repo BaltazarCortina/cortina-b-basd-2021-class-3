@@ -395,6 +395,11 @@ div.advertisement-small + .news {
     border: 2px solid var(--error-color);
 }
 
+#hello-msg {
+    padding: 0 0 20px;
+    font-size: 1.6rem;
+}
+
 @media (min-width: 480px) {
     nav .container {
         display: flex;

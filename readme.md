@@ -1,5 +1,11 @@
 # Become a Software Developer
 
+### Testing
+
+If you type 'test' in the 'Full Name' field and click outside of it, the form will be filled with valid inputs allowing you to submit it without having to manually fill all the fields.
+
+---
+
 ## Problemática semanal 05
 
 - Create a form for people to subscribe to the newspaper.

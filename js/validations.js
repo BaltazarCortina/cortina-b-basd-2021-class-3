@@ -149,7 +149,7 @@ function validatePostalCode(value) {
 }
 
 function validateString(string, fieldName, minLength, format, space = false) {
-    let validFormatOnlyLetters = /^([A-Za-z]+( [A-Za-z]+)?)$/;
+    let validFormatOnlyLetters = /^([A-Za-z]+( [A-Za-z]+)*)$/;
     let validFormatBothOptional = /^([A-Za-z0-9]+( [A-Za-z0-9]+)?)$/;
     let validFormatBothStrict = /^(?=.*\d)(?=.*[a-zA-Z])(([a-zA-Z0-9]+\s?)+)$/;
 
@@ -162,6 +162,9 @@ function validateString(string, fieldName, minLength, format, space = false) {
     } else if (space && !string.includes(' ')) {
         error = true;
         errorMsg = `${fieldName} must contain a blank space!`;
+    } else if (string[string.length-1] === ' ') {
+        error = true;
+        errorMsg = `${fieldName} can\'t end with a space!`;
     } else {
         switch (format) {
             case 'onlyLetters':

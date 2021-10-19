@@ -5,19 +5,6 @@ var helloMsg = document.getElementById('hello-msg');
 var form = document.getElementById('subscribe-form');
 var password = '';
 
-/*
-var fullName = document.getElementById('name');
-var email = document.getElementById('email');
-var password = document.getElementById('password');
-var repeatPassword = document.getElementById('repeat-password');
-var age = document.getElementById('age');
-var phone = document.getElementById('phone');
-var address = document.getElementById('address');
-var city = document.getElementById('city');
-var postalCode = document.getElementById('postal-code');
-var id = document.getElementById('id');
-*/
-
 for (let i = 0; i < fieldNames.length; i++) {
     fields.push(document.getElementById(fieldNames[i]));
     fields[i].addEventListener('blur', validate);
@@ -25,8 +12,6 @@ for (let i = 0; i < fieldNames.length; i++) {
 
 fullName.addEventListener('keyup', helloUser);
 form.addEventListener('submit', submitForm);
-
-// fullName.addEventListener('blur', validate);
 
 function validate(e) {
     var validationResult;
@@ -67,9 +52,6 @@ function validate(e) {
             break;
     }
     if (validationResult[0]) {
-
-        console.log('validate')
-        
         e.target.nextElementSibling.innerHTML = validationResult[1];
         e.target.classList.toggle('error');
         e.target.addEventListener('focus', correcting);
@@ -84,7 +66,6 @@ function correcting(e) {
 
 function submitForm(e) {
     e.preventDefault();
-    console.log('submit');
     let errors = document.querySelectorAll('.error');
     if (errors.length === 0) {
         let msg = 'The form was submitted successfully!\nThe information entered is:';

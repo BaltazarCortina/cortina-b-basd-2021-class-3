@@ -362,6 +362,12 @@ div.advertisement-small + .news {
     border: 2px solid #b9b9b9;
     box-sizing: border-box;
     border-radius: 6px;
+    transition: background-color 0.5s, border 0.5s;
+}
+
+.form-container form input:hover {
+    border: 2px solid var(--dark-color);
+    background-color: #f0f0f0;
 }
 
 .form-container .form-field {
@@ -386,10 +392,16 @@ div.advertisement-small + .news {
 
 .form-container .form-subscribe input {
     background-color: var(--text-color);
+    border: 2px solid var(--text-color);
     font-family: 'Yaldevi', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     color: white;
+}
+
+.form-container .form-subscribe input:hover {
+    background-color: var(--hover-color);
+    border: 2px solid var(--hover-color);
 }
 
 .form-container form input.error, .form-container form input.error:hover {

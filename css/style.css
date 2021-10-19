@@ -336,6 +336,7 @@ div.advertisement-small + .news {
 .form-container {
     width: 100%;
     padding: 20px 0;
+    box-sizing: border-box;
 }
 
 .form-container form {
@@ -615,6 +616,10 @@ div.advertisement-small + .news {
         height: 200px;
         line-height: 12;
     }
+
+    .form-container {
+        min-height: calc(100vh - 44px - 84px - 41px - 52px);
+    }    
 
     .form-container .form-field {
         width: 50%;

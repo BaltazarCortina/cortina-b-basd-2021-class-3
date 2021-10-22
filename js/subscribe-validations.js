@@ -87,6 +87,19 @@ function helloUser(e) {
 }
 
 
+function insertMsg() {
+    let modal = document.querySelector('#modal');
+    let fieldName = ['name', 'email'];          //Estos serian los datos del form
+    let value = ['Name', 'mail@gmail.com'];
+    let msg = '<ul>';
+    for (let i = 0; i < fieldName.length; i++) {
+        msg += `<li>${fieldName[i]}:${value[i]}</li>`;
+    }
+    msg += '</ul>';
+    modal.innerHTML = msg;
+}
+
+
 /********************Testing functions********************/
 
 var validInputs = ['full name', 'mail@mail.com', 'qweqweqwe2', 'qweqweqwe2', 24, 12345678, 'address 12', 'cityname', 'code1', 12345678];

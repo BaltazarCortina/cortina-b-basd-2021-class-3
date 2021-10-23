@@ -1,8 +1,9 @@
 var fieldNames = ['name', 'email', 'password', 'repeat-password', 'age', 'phone', 'address', 'city', 'postal-code', 'id'];
 var fields = [];
-var fullName = document.getElementById('name');
 var helloMsg = document.getElementById('hello-msg');
+var fullName = document.getElementById('name');
 var form = document.getElementById('subscribe-form');
+var submitResult = document.querySelector('.submit-result');
 var password = '';
 
 for (let i = 0; i < fieldNames.length; i++) {
@@ -67,12 +68,13 @@ function correcting(e) {
 function submitForm(e) {
     e.preventDefault();
     let errors = document.querySelectorAll('.error');
+    let msg = '';
     if (errors.length === 0) {
-        let msg = 'The form was submitted successfully!\nThe information entered is:';
+        let title = '<h2>The form was submitted successfully!</h2>';
         for (let i = 0; i < fields.length; i++) {
-            msg += '\n-' + fields[i].getAttribute('name') + ': ' + fields[i].value;
+            msg += `<li><span class="bold">${fields[i].getAttribute('name')}:</span> ${fields[i].value}</li>`;
         }
-        alert(msg);
+        insertMsg(title, msg);
     } else {
         let msg = 'There are still errors in the form!';
         for (let i = 0; i < errors.length; i++) {
@@ -86,17 +88,23 @@ function helloUser(e) {
     helloMsg.innerHTML = 'Hello ' + e.target.value + '!';
 }
 
+function insertMsg(title, msg) {
+    let close = '<span class="material-icons modal-close-btn">close</span>'
+    submitResult.firstElementChild.innerHTML = close + title + '<ul>' + msg + '</ul>';
+    submitResult.classList.toggle('hidden');
+    
+    window.addEventListener('click', closeModal);
+}
 
-function insertMsg() {
-    let modal = document.querySelector('#modal');
-    let fieldName = ['name', 'email'];          //Estos serian los datos del form
-    let value = ['Name', 'mail@gmail.com'];
-    let msg = '<ul>';
-    for (let i = 0; i < fieldName.length; i++) {
-        msg += `<li>${fieldName[i]}:${value[i]}</li>`;
+function closeModal(e) {
+    let modal = document.querySelector('.submit-result');
+    let closeBtn = document.querySelector('.modal-close-btn');
+    if (e.target === modal || e.target === closeBtn) {
+        submitResult.classList.toggle('hidden');
+        submitResult.firstElementChild.innerHTML = '';
+
+        window.removeEventListener('click', check);
     }
-    msg += '</ul>';
-    modal.innerHTML = msg;
 }
 
 

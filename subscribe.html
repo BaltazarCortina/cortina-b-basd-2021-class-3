@@ -1,124 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Daily Prophet - SUBSCRIBE</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Yaldevi:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="hamburger-menu">
-            <button>
-                <span class="material-icons">
-                    menu
-                </span>
-            </button>
-        </div>
-        <h1>
-            <a href="index.html">
-                THE DAILY PROPHET        
-            </a>
-        </h1>
-        <div class="header-bar">
-            <div class="search-bar">
-                <form>
-                    <label for="search">
-                        <input id="search" name="search" type="search" placeholder="Search">
-                    </label>
-                    <button>
-                        <span class="material-icons">
-                            search
-                        </span>
-                    </button>
-                </form>
-            </div>
-            <div class="user">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Daily Prophet - SUBSCRIBE</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Yaldevi:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="hamburger-menu">
                 <button>
-                    <span class="user-text">Sign in</span>
                     <span class="material-icons">
-                        person
+                        menu
                     </span>
                 </button>
             </div>
+            <h1>
+                <a href="index.html">
+                    THE DAILY PROPHET        
+                </a>
+            </h1>
+            <div class="header-bar">
+                <div class="search-bar">
+                    <form>
+                        <label for="search">
+                            <input id="search" name="search" type="search" placeholder="Search">
+                        </label>
+                        <button>
+                            <span class="material-icons">
+                                search
+                            </span>
+                        </button>
+                    </form>
+                </div>
+                <div class="user">
+                    <button>
+                        <span class="user-text">Sign in</span>
+                        <span class="material-icons">
+                            person
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="subscribe-bar">
+            Subscribe and keep up with the latest news!
         </div>
-    </header>
-    <div class="subscribe-bar">
-        Subscribe and keep up with the latest news!
-    </div>
-    <main>
-        <section class="form-container">
-            <h2 id="hello-msg">Hello!</h2>
-            <form id="subscribe-form" action="" autocomplete="on">
-                <div class="form-field">
-                    <label for="name">Full name</label>
-                    <input id="name" name="Name" type="text" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="email">Email</label>
-                    <input id="email" name="Email" type="email" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="password">Password</label>
-                    <input id="password" name="Password" type="password" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="repeat-password">Repeat password</label>
-                    <input id="repeat-password" name="Repeat Password" type="password" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="age">Age</label>
-                    <input id="age" name="Age" type="number" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="phone">Phone number</label>
-                    <input id="phone" name="Phone Number" type="tel" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="address">Address</label>
-                    <input id="address" name="Address" type="text" required>
-                    <div class="form-error"></div>  
-                </div>
-                <div class="form-field">
-                    <label for="city">City</label>
-                    <input id="city" name="City" type="text" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="postal-code">Postal code</label>
-                    <input id="postal-code" name="Postal code" type="text" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="id">ID</label>
-                    <input id="id" name="ID" type="text" required>
-                    <div class="form-error"></div>
-                </div>
-                <div class="form-subscribe">
-                    <input id="submit-btn" type="submit" value="Subscribe!">
-                </div>
-            </form>
-        </section>
-        <div id="modal"></div>
-    </main>
-    <footer>
-        <span>
-            Copyright &copy;2021 - The Daily Prophet
-        </span>
-    </footer>
-    <script src="js/subscribe-validations.js"></script>
-    <script src="js/validations.js"></script>
-</body>
+        <main>
+            <section class="form-container">
+                <h2 id="hello-msg">Hello!</h2>
+                <form id="subscribe-form" action="" autocomplete="on">
+                    <div class="form-field">
+                        <label for="name">Full name</label>
+                        <input id="name" name="Name" type="text" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input id="email" name="Email" type="email" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input id="password" name="Password" type="password" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="repeat-password">Repeat password</label>
+                        <input id="repeat-password" name="Repeat Password" type="password" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="age">Age</label>
+                        <input id="age" name="Age" type="number" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Phone number</label>
+                        <input id="phone" name="Phone Number" type="tel" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="address">Address</label>
+                        <input id="address" name="Address" type="text" required>
+                        <div class="form-error"></div>  
+                    </div>
+                    <div class="form-field">
+                        <label for="city">City</label>
+                        <input id="city" name="City" type="text" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="postal-code">Postal code</label>
+                        <input id="postal-code" name="Postal code" type="text" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="id">ID</label>
+                        <input id="id" name="ID" type="text" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-subscribe">
+                        <input id="submit-btn" type="submit" value="Subscribe!">
+                    </div>
+                </form>
+            </section>
+            <div class="submit-result hidden">
+                <div class="submit-result-content"></div>
+            </div>
+        </main>
+        <footer>
+            <span>
+                Copyright &copy;2021 - The Daily Prophet
+            </span>
+        </footer>
+        <script src="js/subscribe-validations.js"></script>
+        <script src="js/validations.js"></script>
+    </body>
 </html>

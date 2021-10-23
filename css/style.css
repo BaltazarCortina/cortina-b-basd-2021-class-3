@@ -408,6 +408,63 @@ div.advertisement-small + .news {
     border: 2px solid var(--error-color);
 }
 
+.submit-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #32323281;
+}
+
+.submit-result-content {
+    display: flex;
+    flex: 400px 0.2 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 20px;
+    margin: 0 5%;
+    box-sizing: border-box;
+    border: 5px solid var(--text-color);
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 1px var(--hover-color);
+}
+
+.submit-result-content h2 {
+    width: 100%;
+    padding: 10px 0 30px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: green;
+}
+
+.submit-result-content li {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: start;
+    color: var(--text-color);
+}
+
+.submit-result-content .modal-close-btn {
+    
+}
+
+.hidden {
+    display: none;
+}
+
+.bold {
+    font-weight: 600;
+    padding-right: 5px;
+}
+
 #hello-msg {
     padding: 0 0 20px;
     font-size: 1.6rem;

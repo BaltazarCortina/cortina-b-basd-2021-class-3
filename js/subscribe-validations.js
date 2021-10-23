@@ -69,22 +69,21 @@ function correcting(e) {
 function submitForm(e) {
     e.preventDefault();
     let errors = document.querySelectorAll('.error');
-    let msg = '';
     if (errors.length === 0) {
-        let title = '<h2>The form was submitted successfully!</h2>';
+        let url = baseUrl + '?';
         for (let i = 0; i < fields.length; i++) {
-            msg += `<li><span class="bold">${fields[i].getAttribute('name')}:</span> ${fields[i].value}</li>`;
+            if (i != 0) url += '&';
+            url += `${fieldNames[i]}=${fields[i].value}`;
+        }
+        sendRequest(url);
+    } else {
+        let msg = '';
+        let title = 'There are still errors in the form!';
+        for (let i = 0; i < errors.length; i++) {
+            msg += `<li>${errors[i].nextElementSibling.innerHTML}</li>`;
         }
         insertMsg(title, msg);
-    } else {
-        let msg = 'There are still errors in the form!';
-        for (let i = 0; i < errors.length; i++) {
-            msg += '\n-' + errors[i].nextElementSibling.innerHTML;
-        }
-        alert(msg);
     }
-    let url = baseUrl + '?name=Name&email=Email';
-    sendRequest(url);
 }
 
 function sendRequest(url) {
@@ -94,12 +93,21 @@ function sendRequest(url) {
     })
     .then(function(res) {
         console.log(res);
+        successfulRequest(res);
     })
     .catch(function(err) {
         console.log(err);
     });
 }
 
+function successfulRequest(data) {
+    let title = '<h2>The form was submitted successfully!</h2>';
+    let msg = '';
+    for (let i = 0; i < fields.length; i++) {
+        msg += `<li><span class="bold">${fields[i].getAttribute('name')}:</span> ${data[fieldNames[i]]}</li>`;
+    }
+    insertMsg(title, msg);
+}
 
 function helloUser(e) {
     helloMsg.innerHTML = 'Hello ' + e.target.value + '!';

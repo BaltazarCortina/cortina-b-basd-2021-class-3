@@ -5,6 +5,7 @@ var fullName = document.getElementById('name');
 var form = document.getElementById('subscribe-form');
 var submitResult = document.querySelector('.submit-result');
 var password = '';
+var baseUrl = 'http://curso-dev-2021.herokuapp.com/newsletter';
 
 for (let i = 0; i < fieldNames.length; i++) {
     fields.push(document.getElementById(fieldNames[i]));
@@ -82,7 +83,23 @@ function submitForm(e) {
         }
         alert(msg);
     }
+    let url = baseUrl + '?name=Name&email=Email';
+    sendRequest(url);
 }
+
+function sendRequest(url) {
+    fetch(url)
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(res) {
+        console.log(res);
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+}
+
 
 function helloUser(e) {
     helloMsg.innerHTML = 'Hello ' + e.target.value + '!';

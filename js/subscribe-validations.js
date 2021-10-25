@@ -15,6 +15,13 @@ for (let i = 0; i < fieldNames.length; i++) {
 fullName.addEventListener('keyup', helloUser);
 form.addEventListener('submit', submitForm);
 
+window.onload = function() {
+    for (let i = 0; i < fieldNames.length; i++) {
+        fields[i].value = localStorage.getItem(fieldNames[i]);
+    }
+    helloMsg.innerHTML = 'Hello ' + fullName.value + '!';
+}
+
 function validate(e) {
     var validationResult;
     switch (e.target.id) {
@@ -78,18 +85,20 @@ function submitForm(e) {
         sendRequest(url);
     } else {
         let msg = '';
-        let title = 'There are still errors in the form!';
+        let title = '<h2 class="unsuccessful">There are still errors in the form!</h2>';
         for (let i = 0; i < errors.length; i++) {
             msg += `<li>${errors[i].nextElementSibling.innerHTML}</li>`;
         }
-        insertMsg(title, msg);
+        let msgContent = title + '<ul>' + msg + '</ul>'
+        insertMsg(msgContent);
     }
 }
 
 function sendRequest(url) {
     fetch(url)
     .then(function(res) {
-        return res.json();
+        if (res.status === 200) return res.json();
+        else throw Error(res.status);
     })
     .then(function(res) {
         console.log(res);
@@ -97,25 +106,36 @@ function sendRequest(url) {
     })
     .catch(function(err) {
         console.log(err);
+        unsuccessfulRequest(err);
     });
 }
 
 function successfulRequest(data) {
-    let title = '<h2>The form was submitted successfully!</h2>';
+    let title = '<h2 class="successful">The form was submitted successfully!</h2>';
     let msg = '';
     for (let i = 0; i < fields.length; i++) {
         msg += `<li><span class="bold">${fields[i].getAttribute('name')}:</span> ${data[fieldNames[i]]}</li>`;
+        localStorage.setItem(fieldNames[i], data[fieldNames[i]]);
     }
-    insertMsg(title, msg);
+    let msgContent = title + '<ul>' + msg + '</ul>';
+    insertMsg(msgContent);
+}
+
+function unsuccessfulRequest(data) {
+    let title = '<h2 class="unsuccessful">There was a problem when submitting the form!</h2>';
+    let msg = '<p>' + data + '</p>';
+    
+    let msgContent = title + msg;
+    insertMsg(msgContent);
 }
 
 function helloUser(e) {
     helloMsg.innerHTML = 'Hello ' + e.target.value + '!';
 }
 
-function insertMsg(title, msg) {
-    let close = '<span class="material-icons modal-close-btn">close</span>'
-    submitResult.firstElementChild.innerHTML = close + title + '<ul>' + msg + '</ul>';
+function insertMsg(msgContent) {
+    let close = '<div><span class="material-icons modal-close-btn">close</span></div>'
+    submitResult.firstElementChild.innerHTML = close + msgContent;
     submitResult.classList.toggle('hidden');
     
     window.addEventListener('click', closeModal);
@@ -128,7 +148,7 @@ function closeModal(e) {
         submitResult.classList.toggle('hidden');
         submitResult.firstElementChild.innerHTML = '';
 
-        window.removeEventListener('click', check);
+        window.removeEventListener('click', closeModal);
     }
 }
 

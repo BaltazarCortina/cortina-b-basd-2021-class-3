@@ -345,9 +345,6 @@ div.advertisement-small + .news {
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
-    /* border: 3px solid var(--text-color);
-    border-radius: 6px;
-    background-color: white; */
 }
 
 .form-container form label {
@@ -397,6 +394,7 @@ div.advertisement-small + .news {
     font-size: 1rem;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
 }
 
 .form-container .form-subscribe input:hover {
@@ -428,7 +426,7 @@ div.advertisement-small + .news {
     justify-content: center;
     flex-wrap: wrap;
     width: 90%;
-    padding: 20px;
+    padding: 5px 5px 20px;
     margin: 0 5%;
     box-sizing: border-box;
     border: 5px solid var(--text-color);
@@ -442,7 +440,14 @@ div.advertisement-small + .news {
     padding: 10px 0 30px;
     font-size: 1.4rem;
     font-weight: 600;
+}
+
+.submit-result-content h2.successful {
     color: green;
+}
+
+.submit-result-content h2.unsuccessful {
+    color: var(--error-color);
 }
 
 .submit-result-content li {
@@ -452,8 +457,26 @@ div.advertisement-small + .news {
     color: var(--text-color);
 }
 
+.submit-result-content p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.submit-result-content div {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .submit-result-content .modal-close-btn {
-    
+    border-radius: 30%;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.submit-result-content .modal-close-btn:hover {
+    background-color: var(--text-color);
+    color: white;
 }
 
 .hidden {

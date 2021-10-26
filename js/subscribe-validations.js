@@ -101,11 +101,9 @@ function sendRequest(url) {
         else throw Error(res.status);
     })
     .then(function(res) {
-        console.log(res);
         successfulRequest(res);
     })
     .catch(function(err) {
-        console.log(err);
         unsuccessfulRequest(err);
     });
 }

@@ -6,6 +6,13 @@ If you type 'test' in the 'Full Name' field and click outside of it, the form wi
 
 ---
 
+## Problemática semanal 06
+
+- After validating the inputs, send the information collected in the form to the server through an HTTP Request.
+    - If the request is successful, show the information received in a sign (modal), and save it using Local Storage.
+    - If the request is unsuccessful, show information about the error.
+- When you reload the page, the form should be filled with the information saved in the last successful request, if there was any.
+
 ## Problemática semanal 05
 
 - Create a form for people to subscribe to the newspaper.
@@ -37,4 +44,6 @@ Baltazar Cortina
 
 GitHub repository: https://github.com/BaltazarCortina/cortina-b-basd-2021-class-3
 
-GitHub Page: https://baltazarcortina.github.io/cortina-b-basd-2021-class-3/
+GitHub Pages: 
+- Index: https://baltazarcortina.github.io/cortina-b-basd-2021-class-3/
+- Subscribe: https://baltazarcortina.github.io/cortina-b-basd-2021-class-3/subscribe.html

@@ -5,7 +5,7 @@ var fullName = document.getElementById('name');
 var form = document.getElementById('subscribe-form');
 var submitResult = document.querySelector('.submit-result');
 var password = '';
-var baseUrl = 'http://curso-dev-2021.herokuapp.com/newsletter';
+var baseUrl = 'https://curso-dev-2021.herokuapp.com/newsletter';
 
 for (let i = 0; i < fieldNames.length; i++) {
     fields.push(document.getElementById(fieldNames[i]));
